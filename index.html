@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portal AgroDigital</title>
   <style>
     :root {
@@ -10,8 +10,19 @@
       --green-medium: #4b8b3b;
       --green-light: #a7d7a7;
       --bg-color: #f4fdf6;
-      --text-dark: #1b1b1b;
-      --text-light: #ffffff;
+      --text-color: #1b1b1b;
+      --header-bg: #295431;
+      --header-text: #ffffff;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #1b1b1b;
+      --text-color: #e0f2f1;
+      --green-dark: #388e3c;
+      --green-medium: #66bb6a;
+      --green-light: #a5d6a7;
+      --header-bg: #2e7d32;
+      --header-text: #ffffff;
     }
 
     * {
@@ -23,14 +34,15 @@
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: var(--bg-color);
-      color: var(--text-dark);
+      color: var(--text-color);
       line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
     }
 
     header {
-      background-color: var(--green-dark);
+      background-color: var(--header-bg);
       padding: 20px;
-      color: var(--text-light);
+      color: var(--header-text);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -50,13 +62,22 @@
     }
 
     nav a {
-      color: var(--text-light);
+      color: var(--header-text);
       text-decoration: none;
       font-weight: bold;
     }
 
     nav a:hover {
       text-decoration: underline;
+    }
+
+    .theme-toggle {
+      background: var(--green-light);
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 10px;
     }
 
     main {
@@ -96,11 +117,19 @@
       box-shadow: 0 0 6px rgba(0,0,0,0.1);
     }
 
+    .imagem-setor {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
-      background: var(--green-dark);
-      color: var(--text-light);
+      background: var(--header-bg);
+      color: var(--header-text);
       font-size: 0.9rem;
     }
 
@@ -115,42 +144,48 @@
 <body>
   <header>
     <h1>AgroDigital</h1>
-    <nav>
-      <ul>
-        <li><a href="#" onclick="navegar('inicio')">Início</a></li>
-        <li><a href="#" onclick="navegar('tecnologias')">Tecnologias</a></li>
-        <li><a href="#" onclick="navegar('gestao')">Gestão Rural</a></li>
-        <li><a href="#" onclick="navegar('clima')">Clima & Solo</a></li>
-      </ul>
-    </nav>
+    <div>
+      <nav>
+        <ul>
+          <li><a href="#" onclick="navegar('inicio')">Início</a></li>
+          <li><a href="#" onclick="navegar('tecnologias')">Tecnologias</a></li>
+          <li><a href="#" onclick="navegar('gestao')">Gestão</a></li>
+          <li><a href="#" onclick="navegar('clima')">Clima & Solo</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" onclick="toggleTheme()">🌓 Tema</button>
+    </div>
   </header>
 
   <main>
     <section class="search-bar">
-      <input type="text" id="pesquisa" placeholder="Pesquisar no portal..." oninput="filtrarConteudo()">
+      <input type="text" id="pesquisa" placeholder="Pesquisar..." oninput="filtrarConteudo()">
     </section>
 
     <section id="inicio" class="conteudo">
-      <h2>Bem-vindo ao Portal AgroDigital</h2>
-      <p>Este portal reúne informações técnicas, dados sobre produtividade, gestão inteligente, tecnologias emergentes e muito mais para modernizar o campo brasileiro.</p>
+      <h2>Início</h2>
+      <p>O AgroDigital oferece uma visão avançada da agricultura moderna, conectando tecnologias digitais a práticas sustentáveis e aumento de produtividade.</p>
+      <img src="https://images.unsplash.com/photo-1600671531358-9d3bb01c5f62" class="imagem-setor" alt="Campo tecnológico">
     </section>
 
     <section id="tecnologias" class="conteudo" style="display:none;">
       <h2>Tecnologias no Campo</h2>
-      <p>Conheça sensores remotos, estações meteorológicas conectadas, inteligência artificial e drones para monitoramento de plantações.</p>
-      <div class="resultados" id="tecnologias-resultados"></div>
+      <p>Exploramos o uso de sensores inteligentes, drones com câmeras multiespectrais, sistemas de IoT (Internet das Coisas), blockchain na rastreabilidade de alimentos e softwares de previsão.</p>
+      <p>As máquinas agrícolas modernas vêm com GPS de alta precisão, conectadas via satélite, e com capacidade de autopilotagem.</p>
+      <img src="https://images.unsplash.com/photo-1590551554211-73c7281a3d2e" class="imagem-setor" alt="Drone agrícola">
     </section>
 
     <section id="gestao" class="conteudo" style="display:none;">
-      <h2>Gestão Rural</h2>
-      <p>Sistemas integrados de gestão, softwares ERP agrícolas e controle de custos operacionais ajudam a tomar decisões mais eficientes.</p>
-      <div class="resultados" id="gestao-resultados"></div>
+      <h2>Gestão Rural Inteligente</h2>
+      <p>Ferramentas ERP agrícola controlam desde o planejamento da safra até a comercialização. Softwares de BI (Business Intelligence) analisam dados para prever produtividade e identificar gargalos operacionais.</p>
+      <p>Além disso, plataformas como AgroHUB permitem o mapeamento de custos, análise de crédito rural e sustentabilidade financeira.</p>
     </section>
 
     <section id="clima" class="conteudo" style="display:none;">
       <h2>Clima & Solo</h2>
-      <p>Veja como interpretar mapas climáticos, sensores de umidade e dados meteorológicos para prever safras com maior precisão.</p>
-      <div class="resultados" id="clima-resultados"></div>
+      <p>Estações meteorológicas digitais enviam dados em tempo real para aplicativos que avisam sobre geadas, chuvas e picos de temperatura. Mapas NDVI mostram a saúde da vegetação em tempo real.</p>
+      <p>Com sensores de umidade no solo, o produtor consegue irrigar com precisão, economizando água e evitando erosão.</p>
+      <img src="https://images.unsplash.com/photo-1617814064723-9474e6d002b3" class="imagem-setor" alt="Sensor de solo">
     </section>
   </main>
 
@@ -174,7 +209,11 @@
       });
     }
 
-    // Inicialização
+    function toggleTheme() {
+      const atual = document.documentElement.getAttribute("data-theme");
+      document.documentElement.setAttribute("data-theme", atual === "dark" ? "light" : "dark");
+    }
+
     navegar('inicio');
   </script>
 </body>
