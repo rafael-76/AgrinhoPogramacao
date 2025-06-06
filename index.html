@@ -2,25 +2,16 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AgroTech – Inovação no Campo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portal AgroDigital</title>
   <style>
     :root {
-      --bg-color: #f4fdf1;
-      --text-color: #155724;
-      --accent-color: #4caf50;
-      --secondary-color: #81c784;
-      --header-bg: #4caf50;
-      --header-text: #fff;
-    }
-
-    [data-theme="dark"] {
-      --bg-color: #1b1b1b;
-      --text-color: #e0f2f1;
-      --accent-color: #81c784;
-      --secondary-color: #388e3c;
-      --header-bg: #2e7d32;
-      --header-text: #ffffff;
+      --green-dark: #295431;
+      --green-medium: #4b8b3b;
+      --green-light: #a7d7a7;
+      --bg-color: #f4fdf6;
+      --text-dark: #1b1b1b;
+      --text-light: #ffffff;
     }
 
     * {
@@ -30,218 +21,165 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-dark);
       line-height: 1.6;
-      padding: 20px;
-      transition: background 0.3s, color 0.3s;
     }
 
     header {
-      background-color: var(--header-bg);
-      color: var(--header-text);
+      background-color: var(--green-dark);
       padding: 20px;
-      text-align: center;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      color: var(--text-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     header h1 {
-      font-size: 2.8rem;
+      font-size: 1.8rem;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     main {
-      max-width: 960px;
-      margin: 30px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 1080px;
+      margin: auto;
+      padding: 30px 20px;
     }
 
-    h2 {
-      color: var(--accent-color);
-      border-left: 6px solid var(--secondary-color);
-      padding-left: 12px;
-      margin-bottom: 20px;
+    section {
+      margin-bottom: 40px;
     }
 
-    p {
-      margin-bottom: 18px;
-      font-size: 1.1rem;
+    section h2 {
+      color: var(--green-medium);
+      border-left: 6px solid var(--green-light);
+      padding-left: 10px;
+      margin-bottom: 15px;
     }
 
-    .extra-content {
-      display: none;
-      animation: fadeIn 0.8s ease-in-out;
+    .search-bar {
+      margin: 20px 0;
     }
 
-    button {
-      background-color: var(--secondary-color);
-      color: #fff;
-      border: none;
-      padding: 12px 18px;
-      border-radius: 8px;
+    .search-bar input {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid var(--green-light);
+      border-radius: 6px;
       font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
+    }
+
+    .resultados {
       margin-top: 20px;
-    }
-
-    button:hover {
-      background-color: var(--accent-color);
-    }
-
-    canvas {
-      margin-top: 30px;
-      background: #f1f8e9;
+      background: #fff;
+      padding: 15px;
       border-radius: 8px;
-      display: block;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
     }
 
     footer {
       text-align: center;
-      margin-top: 50px;
+      padding: 20px;
+      background: var(--green-dark);
+      color: var(--text-light);
       font-size: 0.9rem;
-      color: #555;
     }
 
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: var(--secondary-color);
-      color: #fff;
-      border: none;
-      padding: 10px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      main {
-        padding: 20px 15px;
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()">🌙 Modo Escuro</button>
-
   <header>
-    <h1>AgroTech</h1>
-    <h3>Inovação no campo com tecnologia</h3>
+    <h1>AgroDigital</h1>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="navegar('inicio')">Início</a></li>
+        <li><a href="#" onclick="navegar('tecnologias')">Tecnologias</a></li>
+        <li><a href="#" onclick="navegar('gestao')">Gestão Rural</a></li>
+        <li><a href="#" onclick="navegar('clima')">Clima & Solo</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <section>
-      <h2>Como a Tecnologia Transforma a Agricultura</h2>
-      <p>
-        A agricultura moderna está cada vez mais conectada com a tecnologia. Sensores no solo medem a umidade e a acidez, drones sobrevoam plantações e capturam imagens com câmeras especiais, e softwares analisam tudo isso em tempo real.
-      </p>
-      <p>
-        Isso permite que o produtor tome decisões mais rápidas e inteligentes. Por exemplo: irrigar apenas onde realmente precisa ou aplicar fertilizante de forma precisa, sem desperdício.
-      </p>
-
-      <button onclick="mostrarMais()" id="toggleBtn">Mostrar mais</button>
-      <div class="extra-content" id="extra">
-        <p>
-          Com a ajuda da inteligência artificial, sistemas conseguem prever pragas, doenças nas plantas e até sugerir o melhor momento para a colheita. Tudo isso ajuda a aumentar a produtividade, economizar recursos e proteger o meio ambiente.
-        </p>
-        <p>
-          Tecnologias como o GPS agrícola, tratores autônomos e plataformas digitais de gestão rural tornam o campo mais eficiente. É a chamada Agricultura 4.0 — uma revolução silenciosa que acontece no campo.
-        </p>
-      </div>
+    <section class="search-bar">
+      <input type="text" id="pesquisa" placeholder="Pesquisar no portal..." oninput="filtrarConteudo()">
     </section>
 
-    <section>
-      <h2>Gráfico de Produtividade com Tecnologia</h2>
-      <canvas id="grafico" width="600" height="300"></canvas>
+    <section id="inicio" class="conteudo">
+      <h2>Bem-vindo ao Portal AgroDigital</h2>
+      <p>Este portal reúne informações técnicas, dados sobre produtividade, gestão inteligente, tecnologias emergentes e muito mais para modernizar o campo brasileiro.</p>
     </section>
 
-    <section>
-      <h2>Imagem Representativa</h2>
-      <img src="https://via.placeholder.com/800x400?text=Tecnologia+na+Agricultura" alt="Ilustração de tecnologia aplicada na agricultura">
+    <section id="tecnologias" class="conteudo" style="display:none;">
+      <h2>Tecnologias no Campo</h2>
+      <p>Conheça sensores remotos, estações meteorológicas conectadas, inteligência artificial e drones para monitoramento de plantações.</p>
+      <div class="resultados" id="tecnologias-resultados"></div>
+    </section>
+
+    <section id="gestao" class="conteudo" style="display:none;">
+      <h2>Gestão Rural</h2>
+      <p>Sistemas integrados de gestão, softwares ERP agrícolas e controle de custos operacionais ajudam a tomar decisões mais eficientes.</p>
+      <div class="resultados" id="gestao-resultados"></div>
+    </section>
+
+    <section id="clima" class="conteudo" style="display:none;">
+      <h2>Clima & Solo</h2>
+      <p>Veja como interpretar mapas climáticos, sensores de umidade e dados meteorológicos para prever safras com maior precisão.</p>
+      <div class="resultados" id="clima-resultados"></div>
     </section>
   </main>
 
   <footer>
-    <p>Desenvolvido por Rafael Requião &copy; 2025</p>
+    <p>© 2025 Portal AgroDigital - Desenvolvido por Rafael Requião</p>
   </footer>
 
   <script>
-    function mostrarMais() {
-      const extra = document.getElementById("extra");
-      const btn = document.getElementById("toggleBtn");
-      if (extra.style.display === "block") {
-        extra.style.display = "none";
-        btn.textContent = "Mostrar mais";
-      } else {
-        extra.style.display = "block";
-        btn.textContent = "Mostrar menos";
-      }
+    const secoes = document.querySelectorAll('.conteudo');
+
+    function navegar(secaoId) {
+      secoes.forEach(sec => sec.style.display = 'none');
+      document.getElementById(secaoId).style.display = 'block';
     }
 
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute("data-theme");
-      if (currentTheme === "dark") {
-        document.documentElement.setAttribute("data-theme", "light");
-        document.querySelector(".theme-toggle").textContent = "🌙 Modo Escuro";
-      } else {
-        document.documentElement.setAttribute("data-theme", "dark");
-        document.querySelector(".theme-toggle").textContent = "☀️ Modo Claro";
-      }
+    function filtrarConteudo() {
+      const termo = document.getElementById("pesquisa").value.toLowerCase();
+      secoes.forEach(secao => {
+        const texto = secao.textContent.toLowerCase();
+        secao.style.display = texto.includes(termo) ? 'block' : 'none';
+      });
     }
 
-    // Gráfico
-    const canvas = document.getElementById("grafico");
-    const ctx = canvas.getContext("2d");
-
-    const dados = [50, 70, 90, 120, 150];
-    const anos = ["2019", "2020", "2021", "2022", "2023"];
-
-    ctx.fillStyle = "#000";
-    ctx.font = "16px Arial";
-    ctx.fillText("Produção (sacas/ha)", 180, 20);
-
-    for (let i = 0; i < dados.length; i++) {
-      let x = 60 + i * 100;
-      let y = 280 - dados[i];
-      ctx.fillStyle = "#388e3c";
-      ctx.fillRect(x, y, 40, dados[i]);
-      ctx.fillStyle = "#1b5e20";
-      ctx.fillText(anos[i], x, 295);
-    }
-
-    // Eixos Y
-    ctx.strokeStyle = "#aaa";
-    for (let i = 0; i <= 150; i += 30) {
-      ctx.beginPath();
-      ctx.moveTo(50, 280 - i);
-      ctx.lineTo(580, 280 - i);
-      ctx.stroke();
-      ctx.fillStyle = "#000";
-      ctx.fillText(i, 10, 285 - i);
-    }
+    // Inicialização
+    navegar('inicio');
   </script>
 </body>
 </html>
+
 
 
 
