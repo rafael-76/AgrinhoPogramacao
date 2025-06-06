@@ -3,46 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tecnologia no Campo</title>
+  <title>Portal AgroTech - Início</title>
   <style>
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-    }
     :root {
       --bg-color: #ffffff;
-      --text-color: #111;
+      --text-color: #1a1a1a;
       --accent-color: #0057b8;
+      --header-bg: #000000;
+      --header-text: #ffffff;
     }
 
     [data-theme="dark"] {
       --bg-color: #121212;
       --text-color: #e0e0e0;
+      --accent-color: #3399ff;
+      --header-bg: #000000;
+      --header-text: #ffffff;
     }
 
-    header, footer {
-      background-color: #000;
-      color: white;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background-color: var(--header-bg);
+      padding: 30px;
       text-align: center;
-      padding: 20px;
+      color: var(--header-text);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: var(--accent-color);
+      padding: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 10px 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     main {
+      padding: 30px;
       max-width: 900px;
       margin: auto;
-      padding: 30px;
-    }
-
-    img {
-      width: 100%;
-      margin-top: 20px;
-      border-radius: 8px;
-    }
-
-    a {
-      color: var(--accent-color);
     }
 
     .theme-toggle {
@@ -50,36 +65,47 @@
       top: 20px;
       right: 20px;
       background: var(--accent-color);
+      border: none;
       color: white;
       padding: 10px;
-      border: none;
-      border-radius: 6px;
+      border-radius: 5px;
       cursor: pointer;
+      z-index: 999;
+    }
+
+    footer {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  <button class="theme-toggle" onclick="toggleTheme()">🌙 Modo Escuro</button>
   <header>
-    <h1>Tecnologia no Campo</h1>
+    <h1>Portal AgroTech</h1>
+    <p>Inovação, Sustentabilidade e Conhecimento no Campo</p>
   </header>
 
+  <nav>
+    <a href="tecnologia.html">Tecnologia no Campo</a>
+    <a href="sustentabilidade.html">Sustentabilidade</a>
+    <a href="educacao.html">Educação Rural</a>
+    <a href="mercado.html">Mercado Agrícola</a>
+    <a href="politicas.html">Políticas Públicas</a>
+  </nav>
+
   <main>
+    <h2>Sobre o Portal</h2>
     <p>
-      A tecnologia é hoje uma das maiores aliadas do setor agrícola. Desde sensores de umidade do solo até tratores autônomos, a chamada Agricultura 4.0 traz eficiência, redução de custos e aumento da produtividade. Dispositivos conectados à Internet das Coisas (IoT) são capazes de enviar dados em tempo real para que o produtor rural possa tomar decisões com mais precisão.
+      O AgroTech é uma iniciativa educacional que visa reunir e apresentar informações detalhadas e atualizadas sobre as transformações da agricultura moderna. Com foco em educação rural, sustentabilidade, tecnologia e políticas públicas, nosso objetivo é promover conhecimento acessível e confiável a jovens, produtores e comunidades rurais de todo o Brasil.
     </p>
-    <p>
-      O uso de drones, por exemplo, permite mapear áreas de difícil acesso, aplicar insumos com precisão e até mesmo fazer diagnósticos de doenças nas plantas. Plataformas baseadas em inteligência artificial ajudam a prever o melhor momento para o plantio e colheita, com base em dados climáticos e históricos.
-    </p>
-    <img src="https://cdn.pixabay.com/photo/2019/09/04/11/56/drone-4458875_1280.jpg" alt="Drone monitorando lavoura" />
-    <p>
-      Outro avanço é o uso de aplicativos móveis que permitem acompanhar os indicadores da fazenda, fazer o gerenciamento de rebanho e calcular o custo de produção. A conectividade rural está cada vez mais acessível, permitindo que até pequenas propriedades adotem soluções tecnológicas para melhorar sua produtividade.
-    </p>
-    <p><a href="index.html">← Voltar para a página inicial</a></p>
   </main>
 
   <footer>
-    <p>© 2025 - Portal AgroTech</p>
+    <p>© 2025 - Portal AgroTech. Desenvolvido por Rafael Requião.</p>
   </footer>
 
   <script>
@@ -87,11 +113,12 @@
       const root = document.documentElement;
       const isDark = root.getAttribute("data-theme") === "dark";
       root.setAttribute("data-theme", isDark ? "light" : "dark");
-      document.querySelector(".theme-toggle").textContent = isDark ? "🌙" : "☀️";
+      document.querySelector(".theme-toggle").textContent = isDark ? "🌙 Modo Escuro" : "☀️ Modo Claro";
     }
   </script>
 </body>
 </html>
+
 
 
 
