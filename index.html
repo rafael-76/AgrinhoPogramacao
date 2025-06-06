@@ -2,218 +2,178 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portal AgroDigital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AgroTech - Agrinho 2025</title>
   <style>
     :root {
-      --green-dark: #295431;
-      --green-medium: #4b8b3b;
-      --green-light: #a7d7a7;
-      --bg-color: #f4fdf6;
-      --text-color: #1b1b1b;
-      --header-bg: #295431;
-      --header-text: #ffffff;
-    }
-
-    [data-theme="dark"] {
-      --bg-color: #1b1b1b;
-      --text-color: #e0f2f1;
-      --green-dark: #388e3c;
-      --green-medium: #66bb6a;
-      --green-light: #a5d6a7;
+      --bg-color: #f0f8f5;
+      --text-color: #2e4d36;
+      --accent-color: #3fa46a;
       --header-bg: #2e7d32;
       --header-text: #ffffff;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    [data-theme="dark"] {
+      --bg-color: #1d1f1e;
+      --text-color: #e6f2eb;
+      --accent-color: #66bb6a;
+      --header-bg: #1b5e20;
+      --header-text: #ffffff;
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg-color);
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg-color);
       color: var(--text-color);
       line-height: 1.6;
-      transition: background 0.3s, color 0.3s;
     }
 
     header {
       background-color: var(--header-bg);
-      padding: 20px;
       color: var(--header-text);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      padding: 20px;
+      text-align: center;
     }
 
     header h1 {
-      font-size: 1.8rem;
+      margin: 0;
+      font-size: 2.5em;
     }
 
-    nav ul {
-      display: flex;
-      gap: 20px;
-      list-style: none;
+    nav {
+      background: var(--accent-color);
+      padding: 10px;
+      text-align: center;
     }
 
     nav a {
-      color: var(--header-text);
+      color: white;
+      margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .theme-toggle {
-      background: var(--green-light);
-      border: none;
-      padding: 8px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-left: 10px;
-    }
-
     main {
-      max-width: 1080px;
+      padding: 20px;
+      max-width: 900px;
       margin: auto;
-      padding: 30px 20px;
     }
 
     section {
       margin-bottom: 40px;
     }
 
-    section h2 {
-      color: var(--green-medium);
-      border-left: 6px solid var(--green-light);
-      padding-left: 10px;
-      margin-bottom: 15px;
+    h2 {
+      color: var(--accent-color);
     }
 
-    .search-bar {
-      margin: 20px 0;
-    }
-
-    .search-bar input {
+    img {
       width: 100%;
-      padding: 10px;
-      border: 2px solid var(--green-light);
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    .imagem-setor {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
       border-radius: 8px;
-      margin: 20px 0;
+      margin-top: 10px;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background: var(--header-bg);
-      color: var(--header-text);
       font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 10px;
-      }
+      background: var(--accent-color);
+      color: white;
     }
   </style>
 </head>
 <body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌙 Modo Escuro</button>
   <header>
-    <h1>AgroDigital</h1>
-    <div>
-      <nav>
-        <ul>
-          <li><a href="#" onclick="navegar('inicio')">Início</a></li>
-          <li><a href="#" onclick="navegar('tecnologias')">Tecnologias</a></li>
-          <li><a href="#" onclick="navegar('gestao')">Gestão</a></li>
-          <li><a href="#" onclick="navegar('clima')">Clima & Solo</a></li>
-        </ul>
-      </nav>
-      <button class="theme-toggle" onclick="toggleTheme()">🌓 Tema</button>
-    </div>
+    <h1>AgroTech - Agrinho 2025</h1>
+    <p>Transformando o campo com educação, sustentabilidade e inovação</p>
   </header>
 
+  <nav>
+    <a href="#tecnologia">Tecnologia</a>
+    <a href="#sustentabilidade">Sustentabilidade</a>
+    <a href="#educacao">Educação no Campo</a>
+    <a href="#producao">Produção Inteligente</a>
+  </nav>
+
   <main>
-    <section class="search-bar">
-      <input type="text" id="pesquisa" placeholder="Pesquisar..." oninput="filtrarConteudo()">
+    <section id="tecnologia">
+      <h2>Tecnologia no Campo</h2>
+      <p>
+        A tecnologia é uma aliada fundamental para o agricultor moderno. Ferramentas como drones, sensores no solo e aplicativos móveis permitem monitorar plantações, identificar falhas e aumentar a produtividade com menos recursos.
+      </p>
+      <p>
+        Máquinas inteligentes realizam colheitas com mais precisão. Softwares ajudam no controle de pragas e no planejamento de safras. Tudo isso torna a agricultura mais eficiente e moderna.
+      </p>
+      <img src="https://cdn.pixabay.com/photo/2018/03/01/14/50/agriculture-3190201_1280.jpg" alt="Tecnologia na agricultura">
     </section>
 
-    <section id="inicio" class="conteudo">
-      <h2>Início</h2>
-      <p>O AgroDigital oferece uma visão aprofundada da agricultura moderna. O portal conecta produtores, técnicos, pesquisadores e estudantes com as tecnologias emergentes no setor agropecuário, promovendo a digitalização e sustentabilidade no campo.</p>
-      <p>Por meio de conteúdos educativos, ferramentas digitais e monitoramento remoto, é possível melhorar práticas agrícolas, gerenciar dados de produção e reduzir impactos ambientais.</p>
-      <img src="https://images.unsplash.com/photo-1600671531358-9d3bb01c5f62" class="imagem-setor" alt="Campo tecnológico">
+    <section id="sustentabilidade">
+      <h2>Sustentabilidade Rural</h2>
+      <p>
+        A agricultura sustentável busca cuidar da terra e garantir alimentos para as próximas gerações. Práticas como o uso racional da água, adubação orgânica e rotação de culturas evitam o desgaste do solo e protegem a biodiversidade.
+      </p>
+      <p>
+        Sistemas agroflorestais, reaproveitamento de resíduos e energia solar são exemplos de inovações que ajudam o produtor a proteger o meio ambiente e economizar.
+      </p>
+      <img src="https://cdn.pixabay.com/photo/2016/07/30/14/25/plant-1552447_1280.jpg" alt="Sustentabilidade agrícola">
     </section>
 
-    <section id="tecnologias" class="conteudo" style="display:none;">
-      <h2>Tecnologias no Campo</h2>
-      <p>Sensores inteligentes, estações meteorológicas, câmeras multiespectrais e drones estão entre as inovações que transformam a agricultura. A coleta contínua de dados permite intervenções em tempo real.</p>
-      <p>O uso de softwares de gerenciamento, plataformas de previsão e algoritmos de inteligência artificial permite decisões mais assertivas, reduzindo perdas e otimizando o uso de insumos.</p>
-      <p>Com a chegada da conectividade rural via 5G, os equipamentos podem operar de forma autônoma e interconectada, criando ecossistemas digitais robustos.</p>
-      <img src="https://images.unsplash.com/photo-1590551554211-73c7281a3d2e" class="imagem-setor" alt="Drone agrícola">
+    <section id="educacao">
+      <h2>Educação no Campo</h2>
+      <p>
+        O conhecimento é essencial para que os jovens do campo se tornem protagonistas do futuro. Projetos como o Agrinho estimulam a leitura, a pesquisa e o pensamento crítico.
+      </p>
+      <p>
+        A escola rural hoje conecta alunos ao mundo digital. Aulas sobre meio ambiente, tecnologia e cidadania ajudam a formar cidadãos conscientes e preparados para os desafios do campo moderno.
+      </p>
+      <img src="https://cdn.pixabay.com/photo/2016/03/27/22/22/classroom-1283920_1280.jpg" alt="Educação rural">
     </section>
 
-    <section id="gestao" class="conteudo" style="display:none;">
-      <h2>Gestão Rural Inteligente</h2>
-      <p>Ferramentas digitais de gestão agrícola (ERP) oferecem controle sobre insumos, maquinário, mão de obra, previsões de safra e comercialização. Integrações com dados climáticos e financeiros proporcionam maior assertividade nas decisões estratégicas.</p>
-      <p>Plataformas de análise de crédito, monitoramento remoto de fazendas e certificações digitais garantem rastreabilidade e transparência. Softwares de Business Intelligence (BI) transformam dados brutos em relatórios inteligentes.</p>
-      <p>A transformação digital também possibilita a gestão colaborativa, onde consultores, cooperativas e produtores interagem em tempo real com base em dados precisos.</p>
-    </section>
-
-    <section id="clima" class="conteudo" style="display:none;">
-      <h2>Clima & Solo</h2>
-      <p>As variáveis ambientais são cruciais na agricultura. Plataformas de previsão climática com base em inteligência artificial antecipam geadas, chuvas e ondas de calor, permitindo o preparo estratégico das lavouras.</p>
-      <p>O uso de sensores no solo, medindo temperatura, umidade e pH, fornece dados fundamentais para adubação correta, controle hídrico e prevenção de doenças de solo.</p>
-      <p>Mapeamentos topográficos por drone e imagens NDVI também ajudam a identificar estresse hídrico e desequilíbrios nutricionais. Esses dados podem ser integrados a sistemas de irrigação automatizados para melhor eficiência.</p>
-      <img src="https://images.unsplash.com/photo-1617814064723-9474e6d002b3" class="imagem-setor" alt="Sensor de solo">
+    <section id="producao">
+      <h2>Produção Inteligente</h2>
+      <p>
+        A produção de alimentos com base em dados e análise digital é uma realidade. A chamada Agricultura 4.0 integra informações de clima, solo e mercado para planejar ações com mais segurança.
+      </p>
+      <p>
+        Além de aumentar a produção, essa abordagem evita desperdícios, reduz custos e garante mais qualidade na mesa do consumidor. A tecnologia é, assim, uma ponte entre o campo e a cidade.
+      </p>
+      <img src="https://cdn.pixabay.com/photo/2017/07/23/11/39/wheat-2536821_1280.jpg" alt="Produção agrícola">
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Portal AgroDigital - Desenvolvido por Rafael Requião</p>
+    <p>Projeto Agrinho 2025 - Desenvolvido por Rafael Requião</p>
   </footer>
 
   <script>
-    const secoes = document.querySelectorAll('.conteudo');
-
-    function navegar(secaoId) {
-      secoes.forEach(sec => sec.style.display = 'none');
-      document.getElementById(secaoId).style.display = 'block';
-    }
-
-    function filtrarConteudo() {
-      const termo = document.getElementById("pesquisa").value.toLowerCase();
-      secoes.forEach(secao => {
-        const texto = secao.textContent.toLowerCase();
-        secao.style.display = texto.includes(termo) ? 'block' : 'none';
-      });
-    }
-
     function toggleTheme() {
-      const atual = document.documentElement.getAttribute("data-theme");
-      document.documentElement.setAttribute("data-theme", atual === "dark" ? "light" : "dark");
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      if (currentTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", "light");
+        document.querySelector(".theme-toggle").textContent = "🌙 Modo Escuro";
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+        document.querySelector(".theme-toggle").textContent = "☀️ Modo Claro";
+      }
     }
-
-    navegar('inicio');
   </script>
 </body>
 </html>
+
 
 
 
