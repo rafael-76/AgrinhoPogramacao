@@ -97,6 +97,7 @@
       margin-top: 30px;
       background: #f1f8e9;
       border-radius: 8px;
+      display: block;
     }
 
     footer {
@@ -124,6 +125,11 @@
       margin-top: 20px;
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     @media (max-width: 600px) {
       header h1 {
         font-size: 2rem;
@@ -137,6 +143,7 @@
 </head>
 <body>
   <button class="theme-toggle" onclick="toggleTheme()">🌙 Modo Escuro</button>
+
   <header>
     <h1>AgroTech</h1>
     <h3>Inovação no campo com tecnologia</h3>
@@ -152,7 +159,7 @@
         Isso permite que o produtor tome decisões mais rápidas e inteligentes. Por exemplo: irrigar apenas onde realmente precisa ou aplicar fertilizante de forma precisa, sem desperdício.
       </p>
 
-      <button onclick="mostrarMais()">Mostrar mais</button>
+      <button onclick="mostrarMais()" id="toggleBtn">Mostrar mais</button>
       <div class="extra-content" id="extra">
         <p>
           Com a ajuda da inteligência artificial, sistemas conseguem prever pragas, doenças nas plantas e até sugerir o melhor momento para a colheita. Tudo isso ajuda a aumentar a produtividade, economizar recursos e proteger o meio ambiente.
@@ -170,7 +177,7 @@
 
     <section>
       <h2>Imagem Representativa</h2>
-      <img src="https://example.com/imagem-agricultura.jpg" alt="Tecnologia na Agricultura">
+      <img src="https://via.placeholder.com/800x400?text=Tecnologia+na+Agricultura" alt="Ilustração de tecnologia aplicada na agricultura">
     </section>
   </main>
 
@@ -181,7 +188,14 @@
   <script>
     function mostrarMais() {
       const extra = document.getElementById("extra");
-      extra.style.display = "block";
+      const btn = document.getElementById("toggleBtn");
+      if (extra.style.display === "block") {
+        extra.style.display = "none";
+        btn.textContent = "Mostrar mais";
+      } else {
+        extra.style.display = "block";
+        btn.textContent = "Mostrar menos";
+      }
     }
 
     function toggleTheme() {
@@ -195,25 +209,39 @@
       }
     }
 
-    // Gráfico simples com canvas
+    // Gráfico
     const canvas = document.getElementById("grafico");
     const ctx = canvas.getContext("2d");
 
-    const dados = [50, 70, 90, 120, 150]; // produtividade em sacas por hectare
+    const dados = [50, 70, 90, 120, 150];
     const anos = ["2019", "2020", "2021", "2022", "2023"];
 
-    ctx.fillStyle = "#388e3c";
+    ctx.fillStyle = "#000";
+    ctx.font = "16px Arial";
+    ctx.fillText("Produção (sacas/ha)", 180, 20);
+
     for (let i = 0; i < dados.length; i++) {
-      ctx.fillRect(60 + i * 100, 280 - dados[i], 40, dados[i]);
-      ctx.fillStyle = "#1b5e20";
-      ctx.fillText(anos[i], 60 + i * 100, 295);
+      let x = 60 + i * 100;
+      let y = 280 - dados[i];
       ctx.fillStyle = "#388e3c";
+      ctx.fillRect(x, y, 40, dados[i]);
+      ctx.fillStyle = "#1b5e20";
+      ctx.fillText(anos[i], x, 295);
     }
 
-    ctx.fillStyle = "#000";
-    ctx.fillText("Produção (sacas por hectare)", 180, 20);
+    // Eixos Y
+    ctx.strokeStyle = "#aaa";
+    for (let i = 0; i <= 150; i += 30) {
+      ctx.beginPath();
+      ctx.moveTo(50, 280 - i);
+      ctx.lineTo(580, 280 - i);
+      ctx.stroke();
+      ctx.fillStyle = "#000";
+      ctx.fillText(i, 10, 285 - i);
+    }
   </script>
 </body>
 </html>
+
 
 
