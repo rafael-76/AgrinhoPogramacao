@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AGRINHO</title>
+    <title>Tecnologia no Campo - AgroTech</title>
     <style>
-        /* Reset básico */
         * {
             margin: 0;
             padding: 0;
@@ -14,131 +13,147 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #e6f2d9; /* verde bem clarinho */
-            color: #155724; /* verde escuro */
+            background: #f4fdf1;
+            color: #155724;
             line-height: 1.6;
             padding: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         header {
-            background-color: #4caf50; /* verde médio */
+            background-color: #4caf50;
             color: #fff;
-            padding: 20px 15px;
+            padding: 20px;
             text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         header h1 {
-            font-size: 3rem;
-            margin-bottom: 5px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        header h3 {
-            font-weight: 400;
-            font-style: italic;
+            font-size: 2.8rem;
         }
 
         main {
-            max-width: 900px;
-            margin: 0 auto 40px;
+            max-width: 960px;
+            margin: 30px auto;
             background: #fff;
-            padding: 25px 30px;
-            border-radius: 10px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         h2 {
-            color: #ffb300; /* amarelo dourado */
-            margin-bottom: 15px;
-            border-bottom: 3px solid #ffb300;
-            padding-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        h3 {
-            color: #388e3c; /* verde escuro para sub-títulos */
-            margin-bottom: 12px;
+            color: #2e7d32;
+            border-left: 6px solid #81c784;
+            padding-left: 12px;
+            margin-bottom: 20px;
         }
 
         p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
-        ul {
-            list-style-type: disc;
-            margin-left: 25px;
-            margin-bottom: 20px;
-        }
-
-        ul li {
-            margin-bottom: 12px;
+            margin-bottom: 18px;
             font-size: 1.1rem;
         }
 
-        ul li strong {
-            color: #2e7d32; /* verde mais forte */
+        .extra-content {
+            display: none;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        button {
+            background-color: #81c784;
+            color: #fff;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #66bb6a;
+        }
+
+        canvas {
+            margin-top: 30px;
+            background: #f1f8e9;
+            border-radius: 8px;
         }
 
         footer {
             text-align: center;
+            margin-top: 50px;
             font-size: 0.9rem;
-            padding: 15px 10px;
             color: #555;
-            border-top: 1px solid #ddd;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* Responsividade simples */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            main {
-                padding: 20px 15px;
-            }
         }
     </style>
 </head>
 <body>
     <header>
         <h1>AgroTech</h1>
-        <h3>Reserva, Paraná</h3>
+        <h3>Inovação no campo com tecnologia</h3>
     </header>
 
     <main>
-        <section class="inicio">
-            <h2>Tecnologia na Agricultura</h2>
+        <section>
+            <h2>Como a Tecnologia Transforma a Agricultura</h2>
             <p>
-                Na agricultura, a tecnologia ajuda muito o pessoal do campo a cuidar das plantações de um jeito mais fácil e rápido.
-                Com máquinas automáticas, drones que monitoram as plantações e sensores que mostram se a terra está boa,
-                dá pra produzir mais comida gastando menos água e menos esforço. É tipo usar tecnologia pra deixar a vida no campo mais inteligente e tranquila.
+                A agricultura moderna está cada vez mais conectada com a tecnologia. Sensores no solo medem a umidade e a acidez, drones sobrevoam plantações e capturam imagens com câmeras especiais, e softwares analisam tudo isso em tempo real.
             </p>
+            <p>
+                Isso permite que o produtor tome decisões mais rápidas e inteligentes. Por exemplo: irrigar apenas onde realmente precisa ou aplicar fertilizante de forma precisa, sem desperdício.
+            </p>
+
+            <button onclick="mostrarMais()">Mostrar mais</button>
+            <div class="extra-content" id="extra">
+                <p>
+                    Com a ajuda da inteligência artificial, sistemas conseguem prever pragas, doenças nas plantas e até sugerir o melhor momento para a colheita. Tudo isso ajuda a aumentar a produtividade, economizar recursos e proteger o meio ambiente.
+                </p>
+                <p>
+                    Tecnologias como o GPS agrícola, tratores autônomos e plataformas digitais de gestão rural tornam o campo mais eficiente. É a chamada Agricultura 4.0 — uma revolução silenciosa que acontece no campo.
+                </p>
+            </div>
         </section>
 
         <section>
-            <h2>O último em tecnologias no agro</h2>
-            <h3>Tratores e Máquinas Modernas</h3>
-            <ul>
-                <li><strong>New Holland Elétrico:</strong> 100% elétrico, com câmeras e sensores, autonomia de 6–8 horas.</li>
-                <li><strong>John Deere 8R Autônomo:</strong> Funciona sem operador, controlado por app e GPS.</li>
-                <li><strong>Case IH Steiger 715 Quadtrac:</strong> Trator mais potente da marca (778 cv).</li>
-                <li><strong>John Deere 9RX:</strong> Alta tração e estabilidade, ideal para terrenos difíceis.</li>
-            </ul>
+            <h2>Gráfico de Produtividade com Tecnologia</h2>
+            <canvas id="grafico" width="600" height="300"></canvas>
         </section>
     </main>
 
     <footer>
-        <p>Desenvolvido por Rafael Requião</p>
+        <p>Desenvolvido por Rafael Requião &copy; 2025</p>
     </footer>
+
+    <script>
+        function mostrarMais() {
+            const extra = document.getElementById("extra");
+            extra.style.display = "block";
+        }
+
+        // Gráfico simples com canvas
+        const canvas = document.getElementById("grafico");
+        const ctx = canvas.getContext("2d");
+
+        const dados = [50, 70, 90, 120, 150]; // produtividade em sacas por hectare
+        const anos = ["2019", "2020", "2021", "2022", "2023"];
+
+        ctx.fillStyle = "#388e3c";
+        for (let i = 0; i < dados.length; i++) {
+            ctx.fillRect(60 + i * 100, 280 - dados[i], 40, dados[i]);
+            ctx.fillStyle = "#1b5e20";
+            ctx.fillText(anos[i], 60 + i * 100, 295);
+            ctx.fillStyle = "#388e3c";
+        }
+
+        ctx.fillStyle = "#000";
+        ctx.fillText("Produção (sacas por hectare)", 180, 20);
+    </script>
 </body>
 </html>
-
-
