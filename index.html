@@ -2,110 +2,329 @@
 <html lang="pt-br" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portal AgroTech - Início</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AgroTech 2025 - Portal Completo</title>
   <style>
     :root {
-      --bg-color: #ffffff;
-      --text-color: #1a1a1a;
-      --accent-color: #0057b8;
-      --header-bg: #000000;
-      --header-text: #ffffff;
+      --bg-color: #121721;
+      --text-color: #d7e3fc;
+      --accent-color: #1e90ff;
+      --header-bg: #0d1128;
+      --nav-bg: #15213b;
+      --footer-bg: #0d1128;
+      --btn-bg: #1e90ff;
+      --btn-hover-bg: #0f74d9;
+      --shadow-color: rgba(30, 144, 255, 0.5);
+      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     [data-theme="dark"] {
-      --bg-color: #121212;
-      --text-color: #e0e0e0;
-      --accent-color: #3399ff;
-      --header-bg: #000000;
-      --header-text: #ffffff;
+      --bg-color: #0b101a;
+      --text-color: #a8bcd9;
+      --accent-color: #5599ff;
+      --header-bg: #080c18;
+      --nav-bg: #10172f;
+      --footer-bg: #080c18;
+      --btn-bg: #5599ff;
+      --btn-hover-bg: #3366cc;
+      --shadow-color: rgba(85, 153, 255, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
+      font-family: var(--font-family);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
       background-color: var(--header-bg);
-      padding: 30px;
-      text-align: center;
-      color: var(--header-text);
+      padding: 1.5rem 3rem;
+      box-shadow: 0 2px 8px var(--shadow-color);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: slideDown 0.8s ease forwards;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      cursor: default;
+      user-select: none;
     }
 
     nav {
+      background-color: var(--nav-bg);
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      background-color: var(--accent-color);
-      padding: 15px;
+      padding: 1rem 0;
+      gap: 2rem;
+      animation: fadeInNav 1.2s ease forwards;
+    }
+
+    @keyframes fadeInNav {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     nav a {
-      color: white;
+      color: var(--text-color);
+      font-weight: 600;
+      font-size: 1.1rem;
       text-decoration: none;
-      margin: 10px 15px;
-      font-weight: bold;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+      box-shadow: 0 0 8px var(--shadow-color);
     }
 
     main {
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
+      flex-grow: 1;
+      max-width: 1100px;
+      margin: 2rem auto 4rem auto;
+      padding: 0 1rem;
+      animation: fadeInMain 1.5s ease forwards;
+    }
+
+    @keyframes fadeInMain {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .search-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .search-input {
+      width: 80%;
+      max-width: 500px;
+      padding: 0.8rem 1rem;
+      font-size: 1.1rem;
+      border: 2px solid var(--accent-color);
+      border-radius: 8px;
+      outline: none;
+      color: var(--text-color);
+      background-color: var(--nav-bg);
+      transition: border-color 0.3s ease;
+    }
+
+    .search-input:focus {
+      border-color: #63a0ff;
+      box-shadow: 0 0 10px #63a0ff;
+    }
+
+    .result-list {
+      max-width: 700px;
+      margin: 1rem auto;
+      color: var(--accent-color);
+      font-weight: 600;
+      font-size: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .result-list li {
+      margin: 0.4rem 0;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .result-list li:hover {
+      color: #90b4ff;
+    }
+
+    footer {
+      background-color: var(--footer-bg);
+      color: var(--text-color);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #222c4c;
+      user-select: none;
     }
 
     .theme-toggle {
       position: fixed;
       top: 20px;
       right: 20px;
-      background: var(--accent-color);
+      background-color: var(--btn-bg);
       border: none;
-      color: white;
-      padding: 10px;
-      border-radius: 5px;
+      color: var(--bg-color);
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
       cursor: pointer;
-      z-index: 999;
+      box-shadow: 0 0 10px var(--shadow-color);
+      transition: background-color 0.3s ease;
+      z-index: 100;
     }
 
-    footer {
-      background-color: var(--header-bg);
-      color: var(--header-text);
-      text-align: center;
-      padding: 20px;
-      margin-top: 50px;
+    .theme-toggle:hover {
+      background-color: var(--btn-hover-bg);
+    }
+
+    /* Animations para os cards do resumo */
+    .card {
+      background-color: var(--nav-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(30, 144, 255, 0.7);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+      font-size: 1.7rem;
+    }
+
+    .card p {
+      color: var(--text-color);
+      font-size: 1.1rem;
+      text-align: justify;
+      max-height: 280px;
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    /* Scroll personalizado para textos longos */
+    .card p::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .card p::-webkit-scrollbar-thumb {
+      background-color: var(--accent-color);
+      border-radius: 4px;
+    }
+
+    .card p::-webkit-scrollbar-track {
+      background-color: var(--nav-bg);
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .search-input {
+        width: 95%;
+      }
     }
   </style>
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()">🌙 Modo Escuro</button>
+
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
   <header>
-    <h1>Portal AgroTech</h1>
-    <p>Inovação, Sustentabilidade e Conhecimento no Campo</p>
+    <h1>AgroTech 2025</h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="tecnologia.html">Tecnologia</a>
+      <a href="sustentabilidade.html">Sustentabilidade</a>
+      <a href="educacao.html">Educação</a>
+      <a href="mercado.html">Mercado</a>
+      <a href="politicas.html">Políticas</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="tecnologia.html">Tecnologia no Campo</a>
-    <a href="sustentabilidade.html">Sustentabilidade</a>
-    <a href="educacao.html">Educação Rural</a>
-    <a href="mercado.html">Mercado Agrícola</a>
-    <a href="politicas.html">Políticas Públicas</a>
-  </nav>
-
   <main>
-    <h2>Sobre o Portal</h2>
-    <p>
-      O AgroTech é uma iniciativa educacional que visa reunir e apresentar informações detalhadas e atualizadas sobre as transformações da agricultura moderna. Com foco em educação rural, sustentabilidade, tecnologia e políticas públicas, nosso objetivo é promover conhecimento acessível e confiável a jovens, produtores e comunidades rurais de todo o Brasil.
-    </p>
+    <div class="search-container">
+      <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="Pesquisar conteúdo no site..."
+        oninput="handleSearch()"
+      />
+      <ul id="searchResults" class="result-list"></ul>
+    </div>
+
+    <div id="contentCards">
+      <div class="card" onclick="location.href='tecnologia.html'">
+        <h2>Tecnologia no Campo</h2>
+        <p>
+          A agricultura moderna depende cada vez mais da tecnologia para aumentar a produtividade, reduzir custos e preservar os recursos naturais. Equipamentos avançados como drones, sensores de solo, sistemas GPS e inteligência artificial transformam a maneira como os produtores gerenciam suas lavouras. Ferramentas digitais permitem análises detalhadas do solo, monitoramento em tempo real e automação de processos, trazendo eficiência e sustentabilidade ao campo.
+          <br /><br />
+          O uso de tecnologias digitais e automação não apenas aumenta a eficiência, mas também facilita a tomada de decisões com base em dados concretos, ajudando a antecipar problemas e maximizar resultados. A integração dessas inovações permite que o agricultor acompanhe as condições climáticas, o estado das plantações e até a saúde dos animais com precisão e em tempo real.
+        </p>
+      </div>
+
+      <div class="card" onclick="location.href='sustentabilidade.html'">
+        <h2>Sustentabilidade Agrícola</h2>
+        <p>
+          O conceito de sustentabilidade na agricultura visa garantir que as práticas de produção não comprometam os recursos naturais para as gerações futuras. Técnicas como plantio direto, rotação de culturas, uso eficiente da água e manejo integrado de pragas contribuem para manter a saúde do solo e a biodiversidade. Além disso, a agricultura sustentável promove a economia verde, valorizando sistemas agroflorestais e energia renovável.
+          <br /><br />
+          Essa abordagem é vital para a preservação ambiental, garantindo que a produção alimentar possa continuar de forma equilibrada, sem degradação dos ecossistemas. As práticas sustentáveis também geram benefícios econômicos a longo prazo, fortalecendo a resiliência dos sistemas agrícolas frente às mudanças climáticas.
+        </p>
+      </div>
+
+      <div class="card" onclick="location.href='educacao.html'">
+        <h2>Educação e Capacitação Rural</h2>
+        <p>
+          O desenvolvimento do campo depende diretamente da capacitação dos seus trabalhadores. Investir em educação rural, formação técnica e acesso ao conhecimento tecnológico é essencial para preparar as novas gerações para os desafios do agronegócio moderno. A educação possibilita a compreensão das novas técnicas, o uso correto das ferramentas digitais e o entendimento das políticas públicas que impactam a produção.
+          <br /><br />
+          Além disso, programas de extensão rural e ensino remoto ampliam o alcance das informações, permitindo que agricultores de áreas remotas tenham acesso a conteúdos atualizados e qualificados. Assim, o campo se torna um ambiente mais inovador e preparado para o futuro.
+        </p>
+      </div>
+
+      <div class="card" onclick="location.href='mercado.html'">
+        <h2>Mercado e Economia Agrícola</h2>
+        <p>
+          O mercado agrícola brasileiro é complexo e dinâmico, influenciado por fatores globais, climáticos e políticos. A análise constante das tendências de mercado, preços das commodities, políticas de exportação e demanda internacional são essenciais para o planejamento eficiente dos produtores. Entender esse cenário ajuda a agregar valor à produção, identificar nichos e oportunidades e garantir a sustentabilidade financeira das propriedades rurais.
+          <br /><br />
+          Com o avanço tecnológico, surgem plataformas digitais que conectam produtores a compradores e mercados locais e internacionais, facilitando a negociação e a distribuição dos produtos agrícolas. Essas ferramentas promovem maior transparência e competitividade no setor.
+        </p>
+      </div>
+
+      <div class="card" onclick="location.href='politicas.html'">
+        <h2>Políticas Públicas para o Campo</h2>
+        <p>
+          As políticas públicas desempenham papel crucial no desenvolvimento rural sustentável. Programas de crédito, assistência técnica, regularização fundiária, incentivos à agricultura familiar e investimentos em infraestrutura são fundamentais para fortalecer o setor agrícola. Analisar e acompanhar essas políticas permite que os produtores aproveitem os recursos disponíveis e participem ativamente das decisões que impactam o campo.
+          <br /><br />
+          O diálogo entre produtores, governo e instituições é essencial para criar um ambiente favorável ao crescimento sustentável, garantindo que as necessidades do setor sejam atendidas com eficiência e responsabilidade social.
+        </p>
+      </div>
+    </div>
   </main>
 
   <footer>
-    <p>© 2025 - Portal AgroTech. Desenvolvido por Rafael Requião.</p>
+    <p>AgroTech 2025 © - Desenvolvido por Rafael Requião - Todos os direitos reservados</p>
   </footer>
 
   <script>
@@ -113,11 +332,14 @@
       const root = document.documentElement;
       const isDark = root.getAttribute("data-theme") === "dark";
       root.setAttribute("data-theme", isDark ? "light" : "dark");
-      document.querySelector(".theme-toggle").textContent = isDark ? "🌙 Modo Escuro" : "☀️ Modo Claro";
+      document.querySelector(".theme-toggle").textContent = isDark ? "🌙" : "☀️";
     }
-  </script>
-</body>
-</html>
+
+    const searchData = [
+      { title: "Tecnologia no Campo", link: "tecnologia.html", content: "A agricultura moderna depende cada vez mais da tecnologia para aumentar a produtividade, reduzir custos e preservar os recursos naturais." },
+      { title: "Sustentabilidade Agrícola", link: "sustentabilidade.html", content: "Sustentabilidade é uma das bases da nova agricultura. O uso de práticas conservacionistas, como o plantio direto, o manejo integrado de pragas e a preservação de nascentes." },
+      { title: "Educação e Capacitação Rural", link: "educacao.html", content: "O desenvolvimento do campo depende diretamente da capacitação dos seus trabalhadores. Investir em educação rural, formação técnica e acesso ao
+
 
 
 
