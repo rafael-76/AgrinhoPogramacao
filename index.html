@@ -1,39 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AgroTech - Agrinho 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal AgroTech - Inovação no Campo</title>
   <style>
     :root {
-      --bg-color: #f0f8f5;
-      --text-color: #2e4d36;
-      --accent-color: #3fa46a;
-      --header-bg: #2e7d32;
+      --bg-color: #ffffff;
+      --text-color: #1a1a1a;
+      --accent-color: #0057b8;
+      --menu-bg: #f0f0f0;
+      --header-bg: #000000;
       --header-text: #ffffff;
     }
 
     [data-theme="dark"] {
-      --bg-color: #1d1f1e;
-      --text-color: #e6f2eb;
-      --accent-color: #66bb6a;
-      --header-bg: #1b5e20;
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --accent-color: #3399ff;
+      --menu-bg: #1e1e1e;
+      --header-bg: #000000;
       --header-text: #ffffff;
     }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg-color);
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
       color: var(--text-color);
-      line-height: 1.6;
     }
 
     header {
       background-color: var(--header-bg);
+      padding: 20px 40px;
       color: var(--header-text);
-      padding: 20px;
-      text-align: center;
     }
 
     header h1 {
@@ -42,133 +42,136 @@
     }
 
     nav {
-      background: var(--accent-color);
-      padding: 10px;
-      text-align: center;
+      background: var(--menu-bg);
+      display: flex;
+      justify-content: space-around;
+      padding: 15px 0;
     }
 
     nav a {
-      color: white;
-      margin: 0 15px;
       text-decoration: none;
+      color: var(--accent-color);
       font-weight: bold;
     }
 
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     main {
-      padding: 20px;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
+      padding: 40px 20px;
     }
 
     section {
-      margin-bottom: 40px;
+      margin-bottom: 60px;
     }
 
     h2 {
       color: var(--accent-color);
-    }
-
-    img {
-      width: 100%;
-      border-radius: 8px;
-      margin-top: 10px;
+      font-size: 1.8em;
+      margin-bottom: 10px;
     }
 
     .theme-toggle {
       position: fixed;
-      top: 10px;
-      right: 10px;
-      background-color: var(--accent-color);
-      color: white;
+      top: 20px;
+      right: 20px;
+      background: var(--accent-color);
       border: none;
-      padding: 10px;
-      border-radius: 8px;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
       cursor: pointer;
+      z-index: 999;
     }
 
     footer {
+      background: var(--header-bg);
+      color: var(--header-text);
       text-align: center;
       padding: 20px;
-      font-size: 0.9rem;
-      background: var(--accent-color);
-      color: white;
     }
   </style>
 </head>
 <body>
   <button class="theme-toggle" onclick="toggleTheme()">🌙 Modo Escuro</button>
+
   <header>
-    <h1>AgroTech - Agrinho 2025</h1>
-    <p>Transformando o campo com educação, sustentabilidade e inovação</p>
+    <h1>Portal AgroTech</h1>
+    <p>Informação, inovação e sustentabilidade no campo brasileiro</p>
   </header>
 
   <nav>
-    <a href="#tecnologia">Tecnologia</a>
+    <a href="#inicio">Início</a>
+    <a href="#tecnologia">Tecnologias</a>
     <a href="#sustentabilidade">Sustentabilidade</a>
-    <a href="#educacao">Educação no Campo</a>
-    <a href="#producao">Produção Inteligente</a>
+    <a href="#educacao">Educação Rural</a>
+    <a href="#mercado">Mercado Agrícola</a>
+    <a href="#politicas">Políticas Públicas</a>
   </nav>
 
   <main>
+    <section id="inicio">
+      <h2>Bem-vindo ao Portal AgroTech</h2>
+      <p>
+        O Portal AgroTech é uma plataforma dedicada à difusão de conhecimento e inovação na agricultura. Nosso objetivo é conectar produtores, estudantes e pesquisadores, fornecendo informações relevantes sobre o futuro do campo.
+        Aqui você encontrará artigos, análises, notícias e estudos sobre as práticas agrícolas mais sustentáveis, as tecnologias que transformam o setor e as políticas que impactam o dia a dia do trabalhador rural.
+      </p>
+    </section>
+
     <section id="tecnologia">
-      <h2>Tecnologia no Campo</h2>
+      <h2>Tecnologias no Campo</h2>
       <p>
-        A tecnologia é uma aliada fundamental para o agricultor moderno. Ferramentas como drones, sensores no solo e aplicativos móveis permitem monitorar plantações, identificar falhas e aumentar a produtividade com menos recursos.
+        A revolução digital chegou ao agronegócio. Sistemas de GPS, sensores de umidade, drones e inteligência artificial são hoje aliados poderosos do agricultor. Estas ferramentas permitem o monitoramento em tempo real da lavoura, a previsão de problemas e o aumento da produtividade com o uso racional de insumos.
+        Além disso, plataformas digitais conectam produtores ao mercado, otimizando vendas e distribuindo conhecimento técnico de forma acessível.
       </p>
-      <p>
-        Máquinas inteligentes realizam colheitas com mais precisão. Softwares ajudam no controle de pragas e no planejamento de safras. Tudo isso torna a agricultura mais eficiente e moderna.
-      </p>
-      <img src="https://cdn.pixabay.com/photo/2018/03/01/14/50/agriculture-3190201_1280.jpg" alt="Tecnologia na agricultura">
     </section>
 
     <section id="sustentabilidade">
-      <h2>Sustentabilidade Rural</h2>
+      <h2>Sustentabilidade Agrícola</h2>
       <p>
-        A agricultura sustentável busca cuidar da terra e garantir alimentos para as próximas gerações. Práticas como o uso racional da água, adubação orgânica e rotação de culturas evitam o desgaste do solo e protegem a biodiversidade.
+        Sustentabilidade é uma das bases da nova agricultura. O uso de práticas conservacionistas, como o plantio direto, o manejo integrado de pragas e a preservação de nascentes, garante não apenas a saúde do solo e da água, mas também a permanência das futuras gerações no campo.
+        A economia verde e os sistemas agroflorestais são alternativas viáveis e em crescimento no Brasil rural.
       </p>
-      <p>
-        Sistemas agroflorestais, reaproveitamento de resíduos e energia solar são exemplos de inovações que ajudam o produtor a proteger o meio ambiente e economizar.
-      </p>
-      <img src="https://cdn.pixabay.com/photo/2016/07/30/14/25/plant-1552447_1280.jpg" alt="Sustentabilidade agrícola">
     </section>
 
     <section id="educacao">
-      <h2>Educação no Campo</h2>
+      <h2>Educação Rural e Capacitação</h2>
       <p>
-        O conhecimento é essencial para que os jovens do campo se tornem protagonistas do futuro. Projetos como o Agrinho estimulam a leitura, a pesquisa e o pensamento crítico.
+        O acesso à educação é fundamental para o avanço do setor agrícola. Escolas rurais, cursos técnicos e programas de extensão têm formado profissionais preparados para lidar com os desafios do campo.
+        A tecnologia também contribui com o ensino remoto, possibilitando que jovens e adultos se atualizem, sem abandonar suas atividades na propriedade.
       </p>
-      <p>
-        A escola rural hoje conecta alunos ao mundo digital. Aulas sobre meio ambiente, tecnologia e cidadania ajudam a formar cidadãos conscientes e preparados para os desafios do campo moderno.
-      </p>
-      <img src="https://cdn.pixabay.com/photo/2016/03/27/22/22/classroom-1283920_1280.jpg" alt="Educação rural">
     </section>
 
-    <section id="producao">
-      <h2>Produção Inteligente</h2>
+    <section id="mercado">
+      <h2>Mercado e Economia do Agronegócio</h2>
       <p>
-        A produção de alimentos com base em dados e análise digital é uma realidade. A chamada Agricultura 4.0 integra informações de clima, solo e mercado para planejar ações com mais segurança.
+        O Brasil é um dos maiores exportadores de alimentos do mundo. A análise de mercado, políticas de exportação, variações climáticas e os preços das commodities afetam diretamente o planejamento e o rendimento do produtor.
+        Neste espaço você encontrará análises econômicas, tendências de mercado e estratégias para agregar valor à produção agrícola.
       </p>
+    </section>
+
+    <section id="politicas">
+      <h2>Políticas Públicas para o Campo</h2>
       <p>
-        Além de aumentar a produção, essa abordagem evita desperdícios, reduz custos e garante mais qualidade na mesa do consumidor. A tecnologia é, assim, uma ponte entre o campo e a cidade.
+        O desenvolvimento rural depende de políticas públicas eficazes. Crédito agrícola, assistência técnica, regularização fundiária e incentivo à agricultura familiar são temas constantemente discutidos no cenário político.
+        Aqui analisamos programas do governo e iniciativas regionais que impactam diretamente o produtor.
       </p>
-      <img src="https://cdn.pixabay.com/photo/2017/07/23/11/39/wheat-2536821_1280.jpg" alt="Produção agrícola">
     </section>
   </main>
 
   <footer>
-    <p>Projeto Agrinho 2025 - Desenvolvido por Rafael Requião</p>
+    <p>Portal AgroTech © 2025 - Todos os direitos reservados</p>
   </footer>
 
   <script>
     function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute("data-theme");
-      if (currentTheme === "dark") {
-        document.documentElement.setAttribute("data-theme", "light");
-        document.querySelector(".theme-toggle").textContent = "🌙 Modo Escuro";
-      } else {
-        document.documentElement.setAttribute("data-theme", "dark");
-        document.querySelector(".theme-toggle").textContent = "☀️ Modo Claro";
-      }
+      const root = document.documentElement;
+      const isDark = root.getAttribute("data-theme") === "dark";
+      root.setAttribute("data-theme", isDark ? "light" : "dark");
+      document.querySelector(".theme-toggle").textContent = isDark ? "🌙 Modo Escuro" : "☀️ Modo Claro";
     }
   </script>
 </body>
