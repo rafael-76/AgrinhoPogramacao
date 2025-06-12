@@ -1,349 +1,143 @@
 <!DOCTYPE html>
-<html lang="pt-br" data-theme="light">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AgroTech 2025 - Portal Completo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📡 Tecnologia na Agricultura: Transformando o Campo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    :root {
-      --bg-color: #121721;
-      --text-color: #d7e3fc;
-      --accent-color: #1e90ff;
-      --header-bg: #0d1128;
-      --nav-bg: #15213b;
-      --footer-bg: #0d1128;
-      --btn-bg: #1e90ff;
-      --btn-hover-bg: #0f74d9;
-      --shadow-color: rgba(30, 144, 255, 0.5);
-      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    [data-theme="dark"] {
-      --bg-color: #0b101a;
-      --text-color: #a8bcd9;
-      --accent-color: #5599ff;
-      --header-bg: #080c18;
-      --nav-bg: #10172f;
-      --footer-bg: #080c18;
-      --btn-bg: #5599ff;
-      --btn-hover-bg: #3366cc;
-      --shadow-color: rgba(85, 153, 255, 0.6);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
+      font-family: 'Roboto', sans-serif;
       margin: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: var(--font-family);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      padding: 0;
+      background: #f5f5f5;
+      color: #333;
     }
 
     header {
-      background-color: var(--header-bg);
-      padding: 1.5rem 3rem;
-      box-shadow: 0 2px 8px var(--shadow-color);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      animation: slideDown 0.8s ease forwards;
-    }
-
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-30px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--accent-color);
-      cursor: default;
-      user-select: none;
-    }
-
-    nav {
-      background-color: var(--nav-bg);
-      display: flex;
-      justify-content: center;
-      padding: 1rem 0;
-      gap: 2rem;
-      animation: fadeInNav 1.2s ease forwards;
-    }
-
-    @keyframes fadeInNav {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    nav a {
-      color: var(--text-color);
-      font-weight: 600;
-      font-size: 1.1rem;
-      text-decoration: none;
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
-
-    nav a:hover {
-      background-color: var(--accent-color);
-      color: var(--bg-color);
-      box-shadow: 0 0 8px var(--shadow-color);
-    }
-
-    main {
-      flex-grow: 1;
-      max-width: 1100px;
-      margin: 2rem auto 4rem auto;
-      padding: 0 1rem;
-      animation: fadeInMain 1.5s ease forwards;
-    }
-
-    @keyframes fadeInMain {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .search-container {
+      background-color: #009688;
+      padding: 40px;
+      color: white;
       text-align: center;
-      margin-bottom: 2rem;
+      font-size: 2em;
     }
 
-    .search-input {
-      width: 80%;
-      max-width: 500px;
-      padding: 0.8rem 1rem;
-      font-size: 1.1rem;
-      border: 2px solid var(--accent-color);
+    section {
+      padding: 40px 20px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    h2 {
+      color: #004d40;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    .content {
+      background-color: white;
       border-radius: 8px;
-      outline: none;
-      color: var(--text-color);
-      background-color: var(--nav-bg);
-      transition: border-color 0.3s ease;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
     }
 
-    .search-input:focus {
-      border-color: #63a0ff;
-      box-shadow: 0 0 10px #63a0ff;
-    }
-
-    .result-list {
-      max-width: 700px;
-      margin: 1rem auto;
-      color: var(--accent-color);
-      font-weight: 600;
-      font-size: 1rem;
-      list-style: none;
-      padding: 0;
-    }
-
-    .result-list li {
-      margin: 0.4rem 0;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-
-    .result-list li:hover {
-      color: #90b4ff;
+    .highlight {
+      color: #ff5722;
+      font-weight: bold;
     }
 
     footer {
-      background-color: var(--footer-bg);
-      color: var(--text-color);
       text-align: center;
-      padding: 1.5rem;
-      font-size: 0.9rem;
-      border-top: 1px solid #222c4c;
-      user-select: none;
+      padding: 15px;
+      background: #333;
+      color: white;
+      font-size: 1em;
     }
 
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: var(--btn-bg);
-      border: none;
-      color: var(--bg-color);
-      font-weight: 700;
-      font-size: 1.2rem;
-      padding: 0.7rem 1rem;
+    ul {
+      line-height: 1.8;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    .blue-background {
+      background-color: #e3f2fd;
+      padding: 20px;
       border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 0 10px var(--shadow-color);
-      transition: background-color 0.3s ease;
-      z-index: 100;
+      margin-bottom: 20px;
     }
 
-    .theme-toggle:hover {
-      background-color: var(--btn-hover-bg);
-    }
-
-    /* Animations para os cards do resumo */
-    .card {
-      background-color: var(--nav-bg);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(30, 144, 255, 0.7);
-    }
-
-    .card h2 {
-      margin-top: 0;
-      margin-bottom: 1rem;
-      color: var(--accent-color);
-      font-size: 1.7rem;
-    }
-
-    .card p {
-      color: var(--text-color);
-      font-size: 1.1rem;
-      text-align: justify;
-      max-height: 280px;
-      overflow-y: auto;
-      padding-right: 8px;
-    }
-
-    /* Scroll personalizado para textos longos */
-    .card p::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .card p::-webkit-scrollbar-thumb {
-      background-color: var(--accent-color);
-      border-radius: 4px;
-    }
-
-    .card p::-webkit-scrollbar-track {
-      background-color: var(--nav-bg);
-    }
-
-    /* Responsive */
-    @media (max-width: 720px) {
-      nav {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .search-input {
-        width: 95%;
-      }
+    .green-background {
+      background-color: #c8e6c9;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-
-  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-
   <header>
-    <h1>AgroTech 2025</h1>
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="tecnologia.html">Tecnologia</a>
-      <a href="sustentabilidade.html">Sustentabilidade</a>
-      <a href="educacao.html">Educação</a>
-      <a href="mercado.html">Mercado</a>
-      <a href="politicas.html">Políticas</a>
-    </nav>
+    <h1>🚜 A Revolução Tecnológica na Agricultura</h1>
   </header>
 
-  <main>
-    <div class="search-container">
-      <input
-        type="text"
-        id="searchInput"
-        class="search-input"
-        placeholder="Pesquisar conteúdo no site..."
-        oninput="handleSearch()"
-      />
-      <ul id="searchResults" class="result-list"></ul>
+  <section>
+    <div class="content blue-background">
+      <h2>💡 Introdução: O Impacto da Tecnologia na Agricultura</h2>
+      <p>A agricultura tem evoluído consideravelmente ao longo das últimas décadas, especialmente com a introdução de novas tecnologias. Desde o uso de máquinas modernas até o emprego de sistemas de inteligência artificial, essas inovações têm transformado a forma como os agricultores produzem alimentos e gerenciam suas propriedades.</p>
     </div>
 
-    <div id="contentCards">
-      <div class="card" onclick="location.href='tecnologia.html'">
-        <h2>Tecnologia no Campo</h2>
-        <p>
-          A agricultura moderna depende cada vez mais da tecnologia para aumentar a produtividade, reduzir custos e preservar os recursos naturais. Equipamentos avançados como drones, sensores de solo, sistemas GPS e inteligência artificial transformam a maneira como os produtores gerenciam suas lavouras. Ferramentas digitais permitem análises detalhadas do solo, monitoramento em tempo real e automação de processos, trazendo eficiência e sustentabilidade ao campo.
-          <br /><br />
-          O uso de tecnologias digitais e automação não apenas aumenta a eficiência, mas também facilita a tomada de decisões com base em dados concretos, ajudando a antecipar problemas e maximizar resultados. A integração dessas inovações permite que o agricultor acompanhe as condições climáticas, o estado das plantações e até a saúde dos animais com precisão e em tempo real.
-        </p>
-      </div>
-
-      <div class="card" onclick="location.href='sustentabilidade.html'">
-        <h2>Sustentabilidade Agrícola</h2>
-        <p>
-          O conceito de sustentabilidade na agricultura visa garantir que as práticas de produção não comprometam os recursos naturais para as gerações futuras. Técnicas como plantio direto, rotação de culturas, uso eficiente da água e manejo integrado de pragas contribuem para manter a saúde do solo e a biodiversidade. Além disso, a agricultura sustentável promove a economia verde, valorizando sistemas agroflorestais e energia renovável.
-          <br /><br />
-          Essa abordagem é vital para a preservação ambiental, garantindo que a produção alimentar possa continuar de forma equilibrada, sem degradação dos ecossistemas. As práticas sustentáveis também geram benefícios econômicos a longo prazo, fortalecendo a resiliência dos sistemas agrícolas frente às mudanças climáticas.
-        </p>
-      </div>
-
-      <div class="card" onclick="location.href='educacao.html'">
-        <h2>Educação e Capacitação Rural</h2>
-        <p>
-          O desenvolvimento do campo depende diretamente da capacitação dos seus trabalhadores. Investir em educação rural, formação técnica e acesso ao conhecimento tecnológico é essencial para preparar as novas gerações para os desafios do agronegócio moderno. A educação possibilita a compreensão das novas técnicas, o uso correto das ferramentas digitais e o entendimento das políticas públicas que impactam a produção.
-          <br /><br />
-          Além disso, programas de extensão rural e ensino remoto ampliam o alcance das informações, permitindo que agricultores de áreas remotas tenham acesso a conteúdos atualizados e qualificados. Assim, o campo se torna um ambiente mais inovador e preparado para o futuro.
-        </p>
-      </div>
-
-      <div class="card" onclick="location.href='mercado.html'">
-        <h2>Mercado e Economia Agrícola</h2>
-        <p>
-          O mercado agrícola brasileiro é complexo e dinâmico, influenciado por fatores globais, climáticos e políticos. A análise constante das tendências de mercado, preços das commodities, políticas de exportação e demanda internacional são essenciais para o planejamento eficiente dos produtores. Entender esse cenário ajuda a agregar valor à produção, identificar nichos e oportunidades e garantir a sustentabilidade financeira das propriedades rurais.
-          <br /><br />
-          Com o avanço tecnológico, surgem plataformas digitais que conectam produtores a compradores e mercados locais e internacionais, facilitando a negociação e a distribuição dos produtos agrícolas. Essas ferramentas promovem maior transparência e competitividade no setor.
-        </p>
-      </div>
-
-      <div class="card" onclick="location.href='politicas.html'">
-        <h2>Políticas Públicas para o Campo</h2>
-        <p>
-          As políticas públicas desempenham papel crucial no desenvolvimento rural sustentável. Programas de crédito, assistência técnica, regularização fundiária, incentivos à agricultura familiar e investimentos em infraestrutura são fundamentais para fortalecer o setor agrícola. Analisar e acompanhar essas políticas permite que os produtores aproveitem os recursos disponíveis e participem ativamente das decisões que impactam o campo.
-          <br /><br />
-          O diálogo entre produtores, governo e instituições é essencial para criar um ambiente favorável ao crescimento sustentável, garantindo que as necessidades do setor sejam atendidas com eficiência e responsabilidade social.
-        </p>
-      </div>
+    <div class="content green-background">
+      <h2>🌱 A Agricultura de Precisão</h2>
+      <p>A agricultura de precisão é uma das mais impactantes inovações tecnológicas na agricultura. Ela utiliza sistemas de informação, como GPS, sensores e big data, para monitorar e otimizar o uso de recursos, como água, fertilizantes e sementes. Isso permite que os agricultores tomem decisões mais informadas, reduzindo desperdícios e aumentando a eficiência no campo.</p>
+      <ul>
+        <li><span class="highlight">Uso de Sensores:</span> Sensores conectados a dispositivos móveis permitem monitorar a umidade do solo, a temperatura e até mesmo a saúde das plantas, ajudando a personalizar o cuidado de cada lavoura.</li>
+        <li><span class="highlight">Tecnologia GPS:</span> Tratores e colheitadeiras com GPS permitem o plantio e a colheita de maneira mais precisa, aumentando a produtividade e reduzindo o uso excessivo de fertilizantes e pesticidas.</li>
+      </ul>
     </div>
-  </main>
+
+    <div class="content blue-background">
+      <h2>📱 Agricultura Digital: Soluções Móveis e Conectividade</h2>
+      <p>A popularização dos smartphones e da internet trouxe soluções digitais que facilitaram a vida dos agricultores. Aplicativos móveis são hoje ferramentas essenciais para quem lida com o campo, desde o monitoramento de dados climáticos até o controle da irrigação.</p>
+      <ul>
+        <li><span class="highlight">Aplicativos de Previsão Climática:</span> Agricultores podem acessar dados meteorológicos em tempo real, permitindo que planejem melhor o uso de pesticidas e fertilizantes, além de escolherem o melhor momento para a colheita.</li>
+        <li><span class="highlight">Plataformas de Comércio Eletrônico:</span> Muitos pequenos agricultores estão agora conectados a mercados globais, vendendo seus produtos diretamente a consumidores por meio de plataformas online.</li>
+      </ul>
+    </div>
+
+    <div class="content green-background">
+      <h2>🤖 Robôs e Drones no Campo</h2>
+      <p>Os drones e robôs estão revolucionando a forma como o trabalho no campo é realizado. De mapeamento aéreo até a análise do solo, essas tecnologias ajudam a aumentar a produtividade e a reduzir custos operacionais.</p>
+      <ul>
+        <li><span class="highlight">Drones:</span> Usados para monitoramento aéreo, os drones fornecem imagens e dados em tempo real, ajudando na detecção precoce de doenças, pragas e outras ameaças à lavoura.</li>
+        <li><span class="highlight">Robôs de Plantio:</span> Robôs especializados podem realizar o plantio de sementes com uma precisão impressionante, otimizando o uso de sementes e permitindo que os agricultores aumentem sua produção.</li>
+      </ul>
+    </div>
+
+    <div class="content blue-background">
+      <h2>📊 Big Data e Inteligência Artificial na Agricultura</h2>
+      <p>O uso de big data e inteligência artificial (IA) no campo tem permitido aos agricultores prever tendências de produção, antecipar crises e otimizar a gestão de suas propriedades. Esses dados, coletados por sensores e sistemas, são analisados por algoritmos que geram insights valiosos.</p>
+      <ul>
+        <li><span class="highlight">Análise de Dados Climáticos:</span> Com a IA, é possível analisar grandes volumes de dados climáticos para prever secas, chuvas intensas ou geadas, ajudando os agricultores a tomar decisões estratégicas para proteger suas colheitas.</li>
+        <li><span class="highlight">Previsão de Mercado:</span> Algoritmos de IA podem analisar padrões de consumo e prever quais produtos terão maior demanda, ajudando os agricultores a otimizar sua produção de acordo com as necessidades do mercado.</li>
+      </ul>
+    </div>
+
+    <div class="content green-background">
+      <h2>🌍 A Sustentabilidade e o Futuro da Agricultura</h2>
+      <p>Com o aumento da população mundial e a crescente demanda por alimentos, a sustentabilidade se tornou um fator crucial na agricultura. A tecnologia desempenha um papel fundamental na promoção de práticas agrícolas mais sustentáveis, como a redução de desperdício de água, o uso eficiente de insumos e a implementação de sistemas de agricultura regenerativa.</p>
+      <ul>
+        <li><span class="highlight">Agricultura Regenerativa:</span> O uso de tecnologias para promover a saúde do solo, como sistemas de cultivo direto e rotação de culturas, ajuda a regenerar e preservar o solo para as futuras gerações.</li>
+        <li><span class="highlight">Uso Eficiente de Água:</span> Tecnologias de irrigação inteligente, como sistemas de irrigação por gotejamento, ajudam a reduzir o consumo de água e aumentam a eficiência na produção.</li>
+      </ul>
+    </div>
+  </section>
 
   <footer>
-    <p>AgroTech 2025 © - Desenvolvido por Rafael Requião - Todos os direitos reservados</p>
+    <p>&copy; 2025 Revolução Tecnológica na Agricultura | Todos os direitos reservados</p>
   </footer>
-
-  <script>
-    function toggleTheme() {
-      const root = document.documentElement;
-      const isDark = root.getAttribute("data-theme") === "dark";
-      root.setAttribute("data-theme", isDark ? "light" : "dark");
-      document.querySelector(".theme-toggle").textContent = isDark ? "🌙" : "☀️";
-    }
-
-    const searchData = [
-      { title: "Tecnologia no Campo", link: "tecnologia.html", content: "A agricultura moderna depende cada vez mais da tecnologia para aumentar a produtividade, reduzir custos e preservar os recursos naturais." },
-      { title: "Sustentabilidade Agrícola", link: "sustentabilidade.html", content: "Sustentabilidade é uma das bases da nova agricultura. O uso de práticas conservacionistas, como o plantio direto, o manejo integrado de pragas e a preservação de nascentes." },
-      { title: "Educação e Capacitação Rural", link: "educacao.html", content: "O desenvolvimento do campo depende diretamente da capacitação dos seus trabalhadores. Investir em educação rural, formação técnica e acesso ao
-
-
-
-
-
-
-
-
+</body>
+</html>
