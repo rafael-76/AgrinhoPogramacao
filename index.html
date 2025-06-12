@@ -5,7 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BrasilTech - Tecnologia na Agricultura</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css"> <!-- Vinculando o CSS externo -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #121212; /* Fundo escuro */
+      color: #e0e0e0; /* Texto claro */
+      line-height: 1.8;
+      font-size: 1.2rem; /* Fonte maior */
+    }
+
+    header {
+      background-color: #333; /* Cor de fundo escuro */
+      padding: 40px 20px;
+      color: white;
+      text-align: center;
+      border-bottom: 4px solid #ffb300;
+    }
+    header h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    header h3 {
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    section {
+      padding: 40px;
+      margin: auto;
+      max-width: 1200px;
+      color: #f5f5f5; /* Texto claro */
+    }
+
+    h2 {
+      color: #ffb300; /* Amarelo suave */
+      font-size: 2rem;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #ffb300;
+      padding-bottom: 5px;
+    }
+
+    .timeline-event {
+      margin-bottom: 50px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: #888;
+      font-size: 1rem;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 30px;
+      color: #ffb300; /* Amarelo para destaque */
+    }
+
+    ul li {
+      margin-bottom: 15px;
+      font-size: 1.2rem; /* Fonte maior nas listas */
+    }
+
+    /* Estilos para dispositivos móveis */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      section {
+        padding: 20px;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+
+  </style>
 </head>
 <body>
   <header>
@@ -16,17 +96,54 @@
   <section>
     <div class="timeline-event">
       <h2>🌾 Tecnologia na Agricultura Brasileira</h2>
-      <p>A tecnologia tem transformado a agricultura no Brasil, um dos maiores produtores agrícolas do mundo. O uso de ferramentas tecnológicas tem impulsionado a produtividade e a sustentabilidade, tornando a produção agrícola mais eficiente e rentável.</p>
+      <p>A tecnologia tem transformado a agricultura no Brasil, um dos maiores produtores agrícolas do mundo. O uso de ferramentas tecnológicas tem impulsionado a produtividade e a sustentabilidade, tornando a produção agrícola mais eficiente e rentável. Drones, sensores, big data, inteligência artificial e Internet das Coisas (IoT) são apenas algumas das inovações que estão mudando o setor.</p>
     </div>
 
     <div class="timeline-event">
       <h2>🚜 Tecnologias Avançadas na Agricultura</h2>
       <h3>1. Máquinas e Tratores Inteligentes</h3>
       <ul>
-        <li><strong>Tratores Autônomos:</strong> Máquinas que operam de forma autônoma, controladas por GPS e inteligência artificial.</li>
-        <li><strong>Tratores Elétricos:</strong> Como o New Holland T7, que é 100% elétrico, trazendo maior sustentabilidade.</li>
-        <li><strong>Plantadeiras e Colheitadeiras de Precisão:</strong> Equipamentos que utilizam sensores para otimizar o plantio e a colheita.</li>
+        <li><strong>Tratores Autônomos:</strong> Máquinas que operam de forma autônoma, controladas por GPS e inteligência artificial, otimizando o uso de recursos e aumentando a precisão no campo.</li>
+        <li><strong>Tratores Elétricos:</strong> Como o New Holland T7, que é 100% elétrico, trazendo maior sustentabilidade e reduzindo a emissão de gases poluentes.</li>
+        <li><strong>Plantadeiras e Colheitadeiras de Precisão:</strong> Equipamentos que utilizam sensores e softwares para otimizar o plantio e a colheita, com foco na eficiência de recursos e na redução de desperdícios.</li>
       </ul>
+    </div>
+
+    <div class="timeline-event">
+      <h3>2. Drones e Sensores</h3>
+      <ul>
+        <li><strong>Drones para Monitoramento:</strong> Drones equipados com câmeras e sensores permitem monitorar grandes áreas de cultivo em tempo real, identificando problemas como infestação de pragas, doenças e deficiências nutricionais nas plantas.</li>
+        <li><strong>Sensores de Solo:</strong> Sensores de umidade e temperatura ajudam a controlar o clima e as condições do solo, garantindo que as plantas recebam a quantidade ideal de água e nutrientes.</li>
+
+      </ul>
+    </div>
+
+    <div class="timeline-event">
+      <h3>3. Big Data e Inteligência Artificial (IA)</h3>
+      <ul>
+        <li><strong>Análise de Dados:</strong> Utilização de grandes volumes de dados para analisar e prever padrões climáticos, produtividade e saúde das lavouras, permitindo decisões mais informadas.</li>
+        <li><strong>IA para Diagnóstico de Doenças:</strong> A inteligência artificial é usada para detectar doenças em plantas a partir de imagens capturadas por câmeras e drones, agilizando o diagnóstico e a aplicação de soluções precisas.</li>
+        <li><strong>Automatização e Robôs:</strong> Robôs e IA estão sendo utilizados para realizar tarefas repetitivas como a colheita e o controle de pragas, além de otimizar a aplicação de fertilizantes e pesticidas.</li>
+      <img src="image.png" alt="">
+      </ul>
+    </div>
+
+    <div class="timeline-event">
+      <h2>🌍 Sustentabilidade e Inovação</h2>
+      <p>Além de aumentar a produtividade, as novas tecnologias têm se mostrado fundamentais para a sustentabilidade na agricultura brasileira. O uso de sistemas de irrigação inteligente, a redução de uso de químicos e a monitorização de recursos naturais ajudam a preservar o meio ambiente, ao mesmo tempo em que aumentam a eficiência do setor.</p>
+    </div>
+
+    <div class="timeline-event">
+      <h3>4. Agricultura de Precisão</h3>
+      <ul>
+        <li><strong>Monitoramento de Culturas:</strong> A agricultura de precisão envolve o uso de tecnologias para mapear e analisar as variações do solo, permitindo aplicar fertilizantes e insumos apenas onde são necessários, economizando recursos e aumentando a produção.</li>
+        <li><strong>Gestão Inteligente de Irrigação:</strong> Tecnologias de irrigação de precisão, como sistemas de controle automático de irrigação, garantem o uso eficiente da água, um recurso cada vez mais escasso no Brasil.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-event">
+      <h3>5. A Agricultura 4.0 no Brasil</h3>
+      <p>A chegada da Agricultura 4.0 no Brasil está tornando a produção ainda mais inteligente. Com a combinação de tecnologias como IoT, robótica, drones e IA, os produtores brasileiros estão alcançando uma nova era de produtividade, sustentabilidade e rentabilidade. O Brasil, com sua vasta extensão territorial e diversidade de culturas, tem grande potencial para liderar a revolução tecnológica no campo.</p>
     </div>
   </section>
 
@@ -35,10 +152,3 @@
   </footer>
 </body>
 </html>
-
-
-
-
-
-
-
